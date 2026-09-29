@@ -8,9 +8,9 @@ import { D, sprite, softBlob } from './common.js';
 import { paintPetal } from '../paint/petal.js';
 
 const C = {
-  orange: { main: hsl('#F28A26'), deep: hsl('#D9601A'), edge: hsl('#A8401A'), tip: hsl('#F6B04A') },
-  throat: hsl('#F6C63A'),
-  bud: hsl('#F38E2A'),
+  orange: { main: hsl('#F6A21E'), deep: hsl('#E07A12'), edge: hsl('#B25812'), tip: hsl('#F9C24A') },
+  throat: hsl('#F8D24A'),
+  bud: hsl('#F4A828'),
   green: hsl('#8FA24A'),
   stem: hsl('#6E8A40'),
 };

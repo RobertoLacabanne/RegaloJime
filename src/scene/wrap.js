@@ -155,8 +155,8 @@ export function bakeWrap(s, seed = 'envoltorio') {
     const bb = side < 0 ? [8, 220, 212, 630] : [188, 220, 392, 630];
     const P = sceneCanvas(bb[0], bb[1], bb[2], bb[3], s);
     // borde superior arrugado: de afuera-arriba hacia adentro-abajo
-    const outerTop = { x: X(184 + rng.gauss(0, 3)), y: 262 + rng.gauss(0, 8) };
-    const innerTop = { x: X(66), y: 352 + rng.gauss(0, 5) };
+    const outerTop = { x: X(184 + rng.gauss(0, 3)), y: 312 + rng.gauss(0, 6) };
+    const innerTop = { x: X(70), y: 372 + rng.gauss(0, 4) };
     const top = [];
     const n = 14;
     for (let i = 0; i <= n; i++) {
@@ -203,11 +203,20 @@ export function bakeBow(s, seed = 'monio') {
   }
   const bandPoly = ribbon(bandPts.map(band.map), () => 10 * s);
   glaze(band.c, [{ poly: bandPoly, color: K.ribbon.main, alpha: 0.07, count: 22, baseRounds: 2, rounds: 3, spread: 0.1, baseSpread: 0.2 }], rng);
-  liftSoft(band.cv, ribbon(bandPts.map((p) => band.map({ x: p.x, y: p.y - 2 })), () => 1.6 * s), rng, { alpha: 0.6, blur: 3, hard: 0.2 });
+  for (const off of [-4.5, 4.5]) liftSoft(band.cv, ribbon(bandPts.map((p) => band.map({ x: p.x, y: p.y + off })), () => 1.3 * s), rng, { alpha: 0.8, blur: 2, hard: 0.55 });
   edgeDarken(band.cv, K.ribbon.edge, 1.4, 4);
   paperUnderlay(band.cv, getPaper().paper, 0, 0, 3, bandPoly, rng);
 
-  const mk = (o) => paintPetal({ scale: s, colors: K.ribbon, layers: 26, alpha: 0.06, deep: [0.3, 0.55], liftAmt: 0.6, rim: 1.4, spread: 0.12, baseSpread: 0.3, pencilAmt: 0.3, ...o });
+  // cinta roja con dos rayas blancas (como la del ramo de rosas)
+  const stripes = (pet, W, L) => {
+    for (const off of [-0.24, 0.24]) {
+      const pts = [];
+      for (let k = 0; k <= 10; k++) pts.push({ x: pet.ax + off * W * s * (1 - k * 0.02), y: pet.ay - (L * s * k) / 10 * 0.96 });
+      liftSoft(pet.canvas, ribbon(pts, () => 1.3 * s), rng, { alpha: 0.8, blur: 2, hard: 0.55 });
+    }
+    return pet;
+  };
+  const mk = (o) => stripes(paintPetal({ scale: s, colors: K.ribbon, layers: 26, alpha: 0.06, deep: [0.3, 0.55], liftAmt: 0.6, rim: 1.4, spread: 0.12, baseSpread: 0.3, pencilAmt: 0.3, ...o }), o.W, o.L);
   // colas (atrás), cinta plateada, lazos y nudo
   const tails = [
     { rot: 162, L: 92, seed: 't1' }, { rot: -150, L: 80, seed: 't2' },

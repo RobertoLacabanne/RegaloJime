@@ -72,9 +72,26 @@ const studies = {
     const s = dpr * zoom;
     const seed = params.get('seed') || 'a';
     const which = params.get('f') || 'chrysanthemum';
+    const RK = { chrysanthemum: 32 * 1.45, gerbera: 40 * 1.45 }[which];
     const B = { chrysanthemum: bakeChrysanthemum, alstroemeria: bakeAlstroemeria, freesia: bakeFreesia, eucalyptus: bakeEucalyptus, fern: bakeFern, paniculata: bakeBabysBreath, gerbera: bakeGerbera, rose: bakeRose }[which];
     const oy = parseFloat(params.get('oy') || '0.5');
-    head(B({ seed, scale: s }), W * 0.5, H * oy);
+    head(B({ seed, scale: s, ...(RK ? { r: RK } : {}) }), W * 0.5, H * oy);
+  },
+  todas() {
+    const s = dpr * zoom;
+    const K = 1.45;
+    const cells = [
+      [bakeRose({ seed: 'r1', variant: 'red', scale: s, r: 34 * K }), 0.25, 0.14],
+      [bakeRose({ seed: 'y1', variant: 'yellow', scale: s, r: 34 * K }), 0.75, 0.14],
+      [bakeChrysanthemum({ seed: 'c1', scale: s, r: 32 * K }), 0.25, 0.38],
+      [bakeGerbera({ seed: 'g1', scale: s, r: 40 * K }), 0.75, 0.38],
+      [bakeAlstroemeria({ seed: 'a1', scale: s, r: 21 * K }), 0.25, 0.7],
+      [bakeFreesia({ seed: 'f1', scale: s, L: 74 * K, dir: 1 }), 0.62, 0.72],
+      [bakeEucalyptus({ seed: 'e1', scale: s, L: 180, dir: 1 }), 0.12, 1.0],
+      [bakeBabysBreath({ seed: 'p1', scale: s, L: 118 * K }), 0.5, 1.0],
+      [bakeFern({ seed: 'h1', scale: s, L: 150, dir: -1 }), 0.86, 1.0],
+    ];
+    for (const [h, x, y] of cells) head(h, W * x, H * y);
   },
   bloom() {
     const s = dpr * zoom;

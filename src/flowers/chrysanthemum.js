@@ -10,24 +10,24 @@ import { part, drawSprite } from '../scene/head.js';
 import { GOLDEN, petalSet, ellipsePoly, softBlob } from './common.js';
 
 const TONES = [
-  { main: hsl('#F6D24A'), deep: hsl('#E8A512'), edge: hsl('#B97A0E') },
-  { main: hsl('#F2BE22'), deep: hsl('#D98E0C'), edge: hsl('#A8650C') },
-  { main: hsl('#F8DE78'), deep: hsl('#EDB42A'), edge: hsl('#C88A14') },
+  { main: hsl('#F6E04E'), deep: hsl('#E6C01C'), edge: hsl('#B39418') },
+  { main: hsl('#F2D535'), deep: hsl('#DDB512'), edge: hsl('#A8860E') },
+  { main: hsl('#F9EB8C'), deep: hsl('#EDCF3E'), edge: hsl('#C8A41A') },
 ];
 
 export function bakeChrysanthemum({ seed = 'crisantemo', scale = 2, r = 27 } = {}) {
   const rng = makeRng(seed);
   const stamps = TONES.map((tone, ti) =>
     petalSet(`${seed}t${ti}`, 4, scale, () => ({
-      L: r * rng.range(0.3, 0.38), W: r * rng.range(0.09, 0.12), widest: 0.62, base: 0.35, tip: 'round',
-      asym: rng.gauss(0, 0.3), bend: rng.gauss(0, 0.12), colors: tone, layers: 14, alpha: 0.08,
+      L: r * rng.range(0.5, 0.58), W: r * rng.range(0.09, 0.11), widest: 0.62, base: 0.35, tip: 'round',
+      asym: rng.gauss(0, 0.3), bend: rng.gauss(0, 0.14), colors: tone, layers: 14, alpha: 0.08,
       deep: [0.4], liftAmt: 0.5, rim: 1.1, grainAmt: 0.3, spread: 0.14, baseSpread: 0.35,
     })),
   ).flat();
 
   const S = r * scale * 2.7;
   const layers = [
-    { r0: 0.6, r1: 1.0, n: 80, len: 1.0, fore: 0.9, delay: 0.0 },
+    { r0: 0.55, r1: 1.0, n: 84, len: 0.95, fore: 0.9, delay: 0.0 },
     { r0: 0.28, r1: 0.72, n: 70, len: 0.85, fore: 0.65, delay: 0.18 },
     { r0: 0.0, r1: 0.4, n: 48, len: 0.7, fore: 0.45, delay: 0.34 },
   ];
@@ -60,10 +60,10 @@ export function bakeChrysanthemum({ seed = 'crisantemo', scale = 2, r = 27 } = {
     }
     // volumen: sombra cálida abajo a la derecha, luz arriba a la izquierda
     const R = r * scale * (L.r1 * 0.62 + 0.35);
-    wetBleed(cv, ellipsePoly(cx + R * 0.45, cy + R * 0.5, R * 0.75, R * 0.6, 10, rng), hsl('#D98A1A'), rng, { alpha: 0.5 + li * 0.05, blur: 9 });
-    wetBleed(cv, ellipsePoly(cx + R * 0.5, cy + R * 0.6, R * 0.45, R * 0.35, 9, rng), hsl('#B0562A'), rng, { alpha: 0.22, blur: 7 });
+    wetBleed(cv, ellipsePoly(cx + R * 0.45, cy + R * 0.5, R * 0.75, R * 0.6, 10, rng), hsl('#C09A1A'), rng, { alpha: 0.6 + li * 0.05, blur: 9 });
+    wetBleed(cv, ellipsePoly(cx + R * 0.5, cy + R * 0.6, R * 0.45, R * 0.35, 9, rng), hsl('#8C7A22'), rng, { alpha: 0.3, blur: 7 });
     liftSoft(cv, ellipsePoly(cx - R * 0.35, cy - R * 0.38, R * 0.3, R * 0.22, 9, rng), rng, { alpha: 0.45, blur: 9, hard: 0.05 });
-    edgeDarken(cv, hsl('#A8650C'), 0.35, 5);
+    edgeDarken(cv, hsl('#A8860E'), 0.35, 5);
     parts.push(part({ canvas: cv, ax: cx, ay: cy, s: scale }, {
       x: 0, y: -li * r * 0.03, sx: 1, sx0: 0.25, sy0: 0.25, delay: L.delay, dur: 0.6,
     }));

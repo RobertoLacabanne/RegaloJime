@@ -9,9 +9,9 @@ import { part } from '../scene/head.js';
 import { D, GOLDEN, petalSet, ellipsePoly, finishDisc, softBlob } from './common.js';
 
 const C = {
-  main: hsl('#F7A873'), deep: hsl('#F0844E'), edge: hsl('#D9623E'), tip: hsl('#F9C595'),
-  back: { main: hsl('#EE9F72'), deep: hsl('#D9774C'), edge: hsl('#B25A3C') },
-  green: hsl('#8E9E3E'), disc: hsl('#6F8A34'), discDeep: hsl('#3F5B2A'), gold: hsl('#D9A424'),
+  main: hsl('#F8DD90'), deep: hsl('#F0BE6E'), edge: hsl('#D49A52'), tip: hsl('#FBEAB8'),
+  back: { main: hsl('#F0CE82'), deep: hsl('#E2AA60'), edge: hsl('#C08848') },
+  green: hsl('#A8B04A'), disc: hsl('#8A9A42'), discDeep: hsl('#4E6A2E'), gold: hsl('#CFCB70'),
 };
 
 function paintDisc(seed, r, s, sy) {
@@ -96,7 +96,7 @@ export function bakeGerbera({ seed = 'gerbera', scale = 2, r = 40 } = {}) {
     }
   });
   // sombra del disco sobre la base de los pétalos
-  parts.push(part(softBlob(`${seed}ring`, r * 0.42, r * 0.36, scale, hsl('#9A4A3A'), 0.5), { x: r * 0.03, y: r * 0.05, sx: 1, sx0: 0.3, delay: 0.2, dur: 0.5 }));
-  parts.push(part(paintDisc(`${seed}d`, r * 0.3, scale, sy), { x: 0, y: 0, sx: 1, sx0: 0.5, delay: 0, dur: 0.45, a0: 1 }));
+  parts.push(part(softBlob(`${seed}ring`, r * 0.42, r * 0.36, scale, hsl('#B8903E'), 0.28), { x: r * 0.03, y: r * 0.05, sx: 1, sx0: 0.3, delay: 0.2, dur: 0.5 }));
+  parts.push(part(paintDisc(`${seed}d`, r * 0.34, scale, sy), { x: 0, y: 0, sx: 1, sx0: 0.5, delay: 0, dur: 0.45, a0: 1 }));
   return { parts, r, kind: 'gerbera' };
 }

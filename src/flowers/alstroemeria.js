@@ -11,6 +11,7 @@ import { paintPetal } from '../paint/petal.js';
 
 const C = {
   outer: { main: hsl('#F5CD3C'), deep: hsl('#E6A416'), edge: hsl('#B87410'), tip: hsl('#B8C45A') },
+  outerBlush: { main: hsl('#F5CD3C'), deep: hsl('#E6A416'), edge: hsl('#C0703A'), tip: hsl('#EE9A72') },
   inner: { main: hsl('#F8DC6A'), deep: hsl('#EDB22A'), edge: hsl('#C07E14') },
   stripe: hsl('#6E1C2C'),
   stem: hsl('#6F8A45'),
@@ -66,7 +67,7 @@ export function bakeAlstroemeria({ seed = 'alstro', scale = 2, r = 21 } = {}) {
       const pet = paintPetal({
         seed: `${seed}${hi}t${k}`, scale, L: r * (outer ? 1.0 : 0.9) * h.sc, W: r * (outer ? 0.62 : 0.42) * h.sc,
         widest: 0.6, base: 0.2, tip: 'point', asym: rng.gauss(0, 0.2), bend: rng.gauss(0, 0.08),
-        colors: outer ? C.outer : C.inner, layers: 24, alpha: 0.055, deep: [0.25, 0.45, 0.6], liftAmt: 0.5, rim: 1.1,
+        colors: outer ? (hi % 2 === 0 ? C.outerBlush : C.outer) : C.inner, layers: 24, alpha: 0.055, deep: [0.25, 0.45, 0.6], liftAmt: 0.5, rim: 1.1,
         stripes: upper ? { n: 7, color: C.stripe, width: 0.45, alpha: 0.75 } : null, spread: 0.14, baseSpread: 0.4,
         pencilAmt: 0.2,
       });

@@ -24,11 +24,11 @@ export const FLOWERS = {
   },
   gerbera: {
     kind: 'head', vr: 40 * K, mass: 3.2, depth: 5, focal: 1, dist: [228, 272], stem: hsl('#6E8A45'),
-    bake: (o) => bakeGerbera({ ...o, r: 40 * K }), burst: ['#F3C89A', '#F2A873', '#E88A58'],
+    bake: (o) => bakeGerbera({ ...o, r: 40 * K }), burst: ['#F4D48E', '#EBB468'],
   },
   crisantemo: {
-    kind: 'head', vr: 28 * K, mass: 1.8, depth: 4.6, focal: 0.4, dist: [196, 276], stem: hsl('#5E7A40'),
-    bake: (o) => bakeChrysanthemum({ ...o, r: 27 * K }), burst: ['#F6D86B', '#F2B705'],
+    kind: 'head', vr: 33 * K, mass: 2.2, depth: 4.6, focal: 0.4, dist: [196, 276], stem: hsl('#5E7A40'),
+    bake: (o) => bakeChrysanthemum({ ...o, r: 32 * K }), burst: ['#F6E04E', '#F9EB8C'],
   },
   alstroemeria: {
     kind: 'head', vr: 36 * K, mass: 1.9, depth: 4.4, focal: 0.3, dist: [160, 200], center: { x: 0, y: -32 * K }, stem: hsl('#6F8A45'),
@@ -36,14 +36,14 @@ export const FLOWERS = {
   },
   fresia: {
     kind: 'spray', L: 74 * K, mass: 1.3, depth: 5.6, focal: 0, d0: 180, reach: 0.95, stem: hsl('#6E8A40'),
-    bake: bakeFreesia, burst: ['#F08A24', '#F6B04A'],
+    bake: bakeFreesia, burst: ['#F6A21E', '#F9C24A'],
   },
   paniculata: {
     kind: 'spray', L: 118 * K, mass: 1.0, depth: 2.6, focal: 0, d0: 128, reach: 1.0, stem: hsl('#8C9A70'),
     bake: bakeBabysBreath, burst: ['#FFFBF1', '#F4EEDD'],
   },
   eucalipto: {
-    kind: 'spray', L: 310, mass: 1.6, depth: 1, focal: 0, d0: 52, reach: 1.0, stem: hsl('#7E7A5E'),
+    kind: 'spray', L: 310, mass: 1.6, depth: 1, focal: 0, d0: 52, reach: 1.0, stem: hsl('#8A4A3A'),
     bake: bakeEucalyptus, burst: ['#93AAA2', '#A3B2A8'],
   },
   helecho: {

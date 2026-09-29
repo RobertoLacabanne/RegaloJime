@@ -11,10 +11,10 @@ import { getPaper } from '../paint/paper.js';
 
 // ---------------------------------------------------------------- eucalipto
 const EU = {
-  leaf: { main: hsl('#93AAA2'), deep: hsl('#6F8C88'), edge: hsl('#4C6868') },
+  leaf: { main: hsl('#8FA396'), deep: hsl('#657F72'), edge: hsl('#46605A') },
   leafB: { main: hsl('#A3B2A8'), deep: hsl('#7E9290'), edge: hsl('#56706E') },
   bloom: hsl('#A497AC'),
-  stem: hsl('#7E7A5E'),
+  stem: hsl('#8A4A3A'),
 };
 
 export function bakeEucalyptus({ seed = 'eucalipto', scale = 2, L = 170, dir = 1 } = {}) {
@@ -31,7 +31,7 @@ export function bakeEucalyptus({ seed = 'eucalipto', scale = 2, L = 170, dir = 1
     const size = (25 - t * 11) * (L / 205) * rng.range(0.8, 1.15);
     const alt = rng.chance(0.4);
     const pet = paintPetal({
-      seed: `${seed}l${i}`, scale, L: size, W: size * rng.range(0.85, 1.0), widest: 0.55, base: 0.15, tip: 'round',
+      seed: `${seed}l${i}`, scale, L: size * 1.2, W: size * rng.range(0.6, 0.72), widest: 0.48, base: 0.15, tip: 'round',
       asym: rng.gauss(0, 0.2), bend: rng.gauss(0, 0.05), colors: alt ? EU.leafB : EU.leaf, layers: 24, alpha: 0.05,
       deep: [0.3], liftAmt: 0.55, rim: 1.2, grainAmt: 0.55, veins: 0, spread: 0.12, baseSpread: 0.35,
       bleed: rng.chance(0.35) ? { color: EU.bloom, frac: 0.6, alpha: 0.35 } : null, pencilAmt: 0.25,

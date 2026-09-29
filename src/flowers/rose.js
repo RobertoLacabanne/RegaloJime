@@ -13,16 +13,16 @@ const D = Math.PI / 180;
 
 const PALETTES = {
   red: {
-    back: { main: hsl('#8A0C28'), deep: hsl('#4C0725'), edge: hsl('#340830') },
-    wall: { main: hsl('#AC1530'), deep: hsl('#6E0A26'), edge: hsl('#43092C'), tip: hsl('#C73A45') },
-    outer: { main: hsl('#B51D33'), deep: hsl('#7A0E2A'), edge: hsl('#4A0C2E'), tip: hsl('#CE4A4E') },
-    center: { main: hsl('#6E0A26'), deep: hsl('#3E0626'), edge: hsl('#2A0624') },
-    shadow: hsl('#3A0A30'),
+    back: { main: hsl('#8E0A1C'), deep: hsl('#4A0512'), edge: hsl('#35061A') },
+    wall: { main: hsl('#BA111F'), deep: hsl('#6E0616'), edge: hsl('#44061A'), tip: hsl('#D2302A') },
+    outer: { main: hsl('#C4151F'), deep: hsl('#7A0814'), edge: hsl('#4A0816'), tip: hsl('#DA3A2E') },
+    center: { main: hsl('#6A0716'), deep: hsl('#3A0512'), edge: hsl('#2A0412') },
+    shadow: hsl('#3A0718'),
   },
   yellow: {
-    back: { main: hsl('#EBB22A'), deep: hsl('#D28310'), edge: hsl('#A8560C') },
-    wall: { main: hsl('#F4CF4E'), deep: hsl('#E6A214'), edge: hsl('#BB6D0E'), tip: hsl('#F6DC80') },
-    outer: { main: hsl('#F5D35A'), deep: hsl('#E9A81E'), edge: hsl('#C47610'), tip: hsl('#F08A24') },
+    back: { main: hsl('#F0B414'), deep: hsl('#D8840A'), edge: hsl('#A8560A') },
+    wall: { main: hsl('#F8C82A'), deep: hsl('#E89A0C'), edge: hsl('#BB6A0C'), tip: hsl('#F9DA70') },
+    outer: { main: hsl('#F9CC34'), deep: hsl('#EAA010'), edge: hsl('#C4700E'), tip: hsl('#F08A24') },
     center: { main: hsl('#E39A1C'), deep: hsl('#C06A10'), edge: hsl('#8E4A12') },
     shadow: hsl('#9A4A18'),
   },
@@ -113,7 +113,7 @@ export function bakeRose({ seed = 'rosa', variant = 'red', scale = 2, r = 34 } =
     const L = r * rng.range(0.88, 1.02), W = r * rng.range(0.9, 1.08);
     const opts = {
       ...common, seed: `${seed}o${i}`, L, W, widest: 0.62, base: 0.22, tip: 'peak', tipDepth: 0.1,
-      asym: rng.gauss(0, 0.25), bend: rng.gauss(0, 0.06), colors: jit(rng, P.outer), reflex: rng.chance(0.45) ? 0.9 : 0, gap: rng.chance(0.5) ? 0.025 : 0, cup: 0.5, liftAmt: variant === 'red' ? 0.45 : 0.6,
+      asym: rng.gauss(0, 0.25), bend: rng.gauss(0, 0.06), colors: jit(rng, P.outer), reflex: rng.chance(0.45) ? 0.9 : 0, gap: rng.chance(0.5) ? 0.025 : 0, cup: 0.5, liftAmt: variant === 'red' ? 0.3 : 0.55,
     };
     const open = sprite(paintPetal(opts), scale);
     const closed = sprite(paintPetal({ ...opts, seed: `${seed}oc${i}`, W: W * 0.6, reflex: 0, liftAmt: 0.3, colors: P.back }), scale);
@@ -156,7 +156,7 @@ export function bakeRose({ seed = 'rosa', variant = 'red', scale = 2, r = 34 } =
     const a = w.deg * D;
     const pet = paintPetal({
       ...common, seed: `${seed}w${i}`, L: r * w.L, W: r * w.W, widest: 0.72, base: 0.35, tip: 'flat', tipDepth: 0.08,
-      asym: -Math.sign(w.deg) * 0.3, bend: 0, colors: jit(rng, P.wall, 0.8), reflex: i === 2 ? 1 : 0, gap: 0.03, cup: 0.6, liftAmt: variant === 'red' ? 0.5 : 0.65,
+      asym: -Math.sign(w.deg) * 0.3, bend: 0, colors: jit(rng, P.wall, 0.8), reflex: i === 2 ? 1 : 0, gap: 0.03, cup: 0.6, liftAmt: variant === 'red' ? 0.35 : 0.6,
       deep: [0.25, 0.42], splat: i === 2 ? 5 : 0,
     });
     parts.push(part(sprite(pet, scale), {
