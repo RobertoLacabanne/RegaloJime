@@ -1,0 +1,28 @@
+{
+  "name": "ramo-para-jimena",
+  "version": "1.0.0",
+  "description": "Un ramo en acuarela que se arma con cada toque.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertoLacabanne/RegaloJime.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/RobertoLacabanne/RegaloJime/issues"
+  },
+  "homepage": "https://github.com/RobertoLacabanne/RegaloJime#readme",
+  "devDependencies": {
+    "vite": "^8.3.1"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "^5.3.0",
+    "@fontsource/cormorant-garamond": "^5.3.0"
+  },
+  "private": true,
+  "type": "module"
+}
