@@ -140,7 +140,7 @@ body { position: fixed; inset: 0; }
 }
 .poem-title { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 30px; margin: 10px 0 18px; line-height: 1.1; }
 .poem p { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 21px; line-height: 1.42; margin: 0; }
-.message { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--ink-soft); margin: 26px 0 0; }
+.message { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.45; color: var(--ink-soft); margin: 26px 0 0; white-space: pre-line; }
 .sign { font-family: var(--hand); font-size: 32px; color: var(--carmine); margin: 18px 6px 26px 0; text-align: right; }
 .again {
   font-family: var(--hand); font-size: 19px; color: var(--ink-soft); background: none; border: 0; cursor: pointer;

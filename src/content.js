@@ -9,23 +9,29 @@
 
 export default {
   destinataria: 'Jimena',
-  firma: 'Roberto',
-  titulo: 'Un ramo para vos',
+  firma: 'Rober',
+  titulo: 'Incluso en estos días',
   pista: 'tocá',
-  mensajeFinal: '[MENSAJE FINAL – reemplazar]',
+  mensajeFinal: `No hace falta que me arregles los días.
+Quería regalarte algo lindo
+y recordarte que, entre tantas cosas que me pasan,
+también me pasa esto:
+te miro y me dan ganas de acercarme.
+
+Con amor,`,
   pasos: [
-    { flor: 'helecho', verso: '[VERSO 1 – reemplazar]' },
-    { flor: 'eucalipto', verso: '[VERSO 2 – reemplazar]' },
-    { flor: 'helecho', verso: '[VERSO 3 – reemplazar]' },
-    { flor: 'rosa roja', verso: '[VERSO 4 – reemplazar]' },
-    { flor: 'gerbera', verso: '[VERSO 5 – reemplazar]' },
-    { flor: 'rosa amarilla', verso: '[VERSO 6 – reemplazar]' },
-    { flor: 'rosa roja', verso: '[VERSO 7 – reemplazar]' },
-    { flor: 'crisantemo', verso: '[VERSO 8 – reemplazar]' },
-    { flor: 'rosa amarilla', verso: '[VERSO 9 – reemplazar]' },
-    { flor: 'fresia', verso: '[VERSO 10 – reemplazar]' },
-    { flor: 'alstroemeria', verso: '[VERSO 11 – reemplazar]' },
-    { flor: 'crisantemo', verso: '[VERSO 12 – reemplazar]' },
-    { flor: 'paniculata', verso: '[VERSO 13 – reemplazar]' },
+    { flor: 'helecho', verso: 'Jime, estos días vengo durmiendo poco,' },
+    { flor: 'eucalipto', verso: 'y a veces el día me queda grande.' },
+    { flor: 'helecho', verso: 'Se me amontonan las preocupaciones' },
+    { flor: 'rosa roja', verso: 'y me cuesta encontrar las palabras.' },
+    { flor: 'gerbera', verso: 'Pero aun así, quiero que sepas:' },
+    { flor: 'rosa amarilla', verso: 'si alguna vez me notás lejos,' },
+    { flor: 'rosa roja', verso: 'no es que tenga menos ganas de estar con vos.' },
+    { flor: 'crisantemo', verso: 'Es que a veces el cansancio' },
+    { flor: 'rosa amarilla', verso: 'me deja más callado de lo que quisiera.' },
+    { flor: 'fresia', verso: 'Por eso hoy te lo digo con estas flores,' },
+    { flor: 'alstroemeria', verso: 'una por cada cosa que me cuesta decir:' },
+    { flor: 'crisantemo', verso: 'te quiero también en mis días difíciles,' },
+    { flor: 'paniculata', verso: 'aunque no siempre me salga demostrarlo.' },
   ],
 };
